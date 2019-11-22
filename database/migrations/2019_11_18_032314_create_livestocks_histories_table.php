@@ -17,7 +17,7 @@ class CreateLivestocksHistoriesTable extends Migration
             $table->bigIncrements('id');
             $table->varchar('title');
             $table->varchar('description');
-            $table->varchar('image');
+            $table->varchar('image')->nullable();
             $table->integer('livestocks_id');
             $table->timestamps();
         });

@@ -15,8 +15,9 @@ class CreateCattlemansHistoriesTable extends Migration
     {
         Schema::create('cattlemans_histories', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->varchar('title');
             $table->varchar('description');
-            $table->varchar('image');
+            $table->varchar('image')->nullable();
             $table->integer('cattlemans_id');
             $table->timestamps();
         });
