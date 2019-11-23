@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class provinces extends Model
+class province extends Model
 {
     //
     protected$fillabel=[
         'name',
     ];
     public function cattlemans(){
-    	return $this->hasMany('App\cattlemans');
+    	return $this->hasMany('App\cattleman');
     }
 }

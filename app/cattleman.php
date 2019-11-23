@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class cattlemans extends Model
+class cattleman extends Model
 {
    
     //
@@ -20,16 +20,16 @@ class cattlemans extends Model
     	return $this->hasMany('App\livestock');
     }
     public function provinces(){
-    	return $this->belongsTo('App\provinces');
+    	return $this->belongsTo('App\province');
     }
     public function regencies(){
-    	return $this->belongsTo('App\regencies');
+    	return $this->belongsTo('App\regencie');
     }
     public function log_cattlemans(){
-    	return $this->hasMany('App\log_views_cattlemans');
+    	return $this->hasMany('App\log_view_cattleman');
     }
     public function cattlemans_histories(){
-    	return $this->hasMany('App\cattlemans_histories');
+    	return $this->hasMany('App\cattleman_historie');
     }
 
 

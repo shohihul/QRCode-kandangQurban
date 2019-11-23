@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class livestocks extends Model
+class livestock extends Model
 {
     //
     protected $fillable =[
@@ -14,18 +14,18 @@ class livestocks extends Model
     ];
 
     public function livestocks(){
-    	return $this->belongsTo('App\cattlemans');
+    	return $this->belongsTo('App\cattleman');
     }
 
     public function livestock_tipes(){
-    	return $this->belongsTo('App\livestock_types');
+    	return $this->belongsTo('App\livestock_type');
     }
 
     public function log_livestocks(){
-    	return $this->hasMany('App\log_views_livestock');
+    	return $this->hasMany('App\log_view_livestock');
     }
     public function livestocks_histories(){
-    	return $this->hasMany('App\livestock_histories');
+    	return $this->hasMany('App\livestock_historie');
     }
 
 

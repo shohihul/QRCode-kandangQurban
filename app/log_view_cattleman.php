@@ -4,13 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class cattlemans_histories extends Model
+class log_view_cattleman extends Model
 {
     //
     protected$fillabel=[
-        'title','description','image',
+        'ip_address',
     ];
+
     public function cattlemans(){
-    	return $this->belongsTo('App\cattlemans');
+    	return $this->belongsTo('App\cattleman');
     }
 }
