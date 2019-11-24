@@ -14,16 +14,15 @@ class CreateCattlemansTable extends Migration
     public function up()
     {
         Schema::create('cattlemans', function (Blueprint $table) {
-            $table->bigIncrements('cattlemans_id');
-            $table->varchar('email');
-            $table->varchar('name');
-            $table->varchar('address');
-            $table->integer('province_id');
+            $table->bigIncrements('id');
+            $table->string('email');
+            $table->string('name');
+            $table->string('address');
             $table->integer('regencies_id');
             $table->enum('gender',['Laki-laki','Perempuan']);
-            $table->varchar('password');
-            $table->varchar('photo_profile');
-            $table->varchar('qr_code');
+            $table->string('password');
+            $table->string('photo_profile');
+            $table->string('qr_code');
             $table->timestamps();
         });
     }

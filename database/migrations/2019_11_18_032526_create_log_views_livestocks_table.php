@@ -16,10 +16,11 @@ class CreateLogViewsLivestocksTable extends Migration
         Schema::create('log_views_livestocks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('livestocks_id');
-            $table->varchar('ip_address');
+            $table->string('ip_address');
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.

@@ -15,9 +15,9 @@ class CreateLivestocksHistoriesTable extends Migration
     {
         Schema::create('livestocks_histories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->varchar('title');
-            $table->varchar('description');
-            $table->varchar('image')->nullable();
+            $table->string('title');
+            $table->string('description');
+            $table->string('image')->nullable();
             $table->integer('livestocks_id');
             $table->timestamps();
         });

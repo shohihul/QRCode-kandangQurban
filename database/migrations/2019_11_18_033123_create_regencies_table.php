@@ -14,8 +14,9 @@ class CreateRegenciesTable extends Migration
     public function up()
     {
         Schema::create('regencies', function (Blueprint $table) {
-            $table->bigIncrements('regencies_id');
-            $table->Varchar('name');
+            $table->bigIncrements('id');
+            $table->integer('province_id');
+            $table->string('name');
             $table->timestamps();
         });
     }

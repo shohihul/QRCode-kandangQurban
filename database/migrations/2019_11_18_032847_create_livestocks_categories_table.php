@@ -14,8 +14,8 @@ class CreateLivestocksCategoriesTable extends Migration
     public function up()
     {
         Schema::create('livestocks_categories', function (Blueprint $table) {
-            $table->bigIncrements('livestocks_categories_id');
-            $table->varchar('name');
+            $table->bigIncrements('id');
+            $table->string('name');
             $table->timestamps();
         });
     }

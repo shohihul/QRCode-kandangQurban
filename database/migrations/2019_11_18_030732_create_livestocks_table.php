@@ -14,16 +14,16 @@ class CreateLivestocksTable extends Migration
     public function up()
     {
         Schema::create('livestocks', function (Blueprint $table) {
-            $table->bigIncrements('livestocks_id');
+            $table->bigIncrements('id');
             $table->integer('cattlemans_id');
             $table->integer('livestocks_types_id');
-            $table->Varchar('name');
+            $table->string('name');
             $table->integer('price');
             $table->integer('stock');
             $table->integer('weight');
             $table->integer('description');
-            $table->varchar('image');
-            $table->varchar('qr_code');
+            $table->string('image');
+            $table->string('qr_code');
             $table->timestamps();
         });
     }
