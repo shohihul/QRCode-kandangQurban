@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class log_view_cattleman extends Model
+class LogViewCattleman extends Model
 {
     //
     protected$fillabel=[
@@ -12,6 +12,6 @@ class log_view_cattleman extends Model
     ];
 
     public function cattlemans(){
-    	return $this->belongsTo('App\cattleman');
+    	return $this->belongsTo('App\Cattleman');
     }
 }

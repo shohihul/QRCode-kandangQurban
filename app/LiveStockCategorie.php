@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class livestock_categorie extends Model
+class LiveStockCategorie extends Model
 {
     //
     protected$fillabel=[
@@ -12,6 +12,6 @@ class livestock_categorie extends Model
     ];
 
     public function livestock_types(){
-    	return $this->hasMany('App\livestock_type');
+    	return $this->hasMany('App\LivestockType');
     }
 }
