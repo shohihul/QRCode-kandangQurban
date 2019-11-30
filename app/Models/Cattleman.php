@@ -1,15 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Cattleman extends Model
 {
    
-    //
+    protected $table = 'cattlemans';
+
     protected $fillable=[
-        'email','name','address','gender', 'regency_id', 'password','photo_profile','qr_code', 
+        'email','name','address','gender', 'regencie_id', 'password', 'photo_profile', 'qr_code', 
     ];
 
     protected $hidden = [

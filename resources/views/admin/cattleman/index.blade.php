@@ -25,52 +25,61 @@
     <div class="container-fluid">
         <!-- /.row -->
         <div class="row">
-        <div class="col-12">
-            <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">List Data Peternak</h3></h3>
-
-                <div class="card-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                    <div class="input-group-append">
-                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">List Data Peternak</h3></h3>
+                        <div class="card-tools">
+                            <a href="{{ route('admin-cattleman.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Tambah Data Peternak</a>
+                        </div>
                     </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover">
+                        <thead>
+                            <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Provinsi</th>
+                            <th>Kabupaten</th>
+                            <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($cattleman as $row)
+                            <tr>
+                                <td>{{ $loop->iteration}}</td>
+                                <td>{{ $row->name }}</td>
+                                <td>{{ $row->email}}</td>
+                                @if ( $row->gender == 'male' )
+                                    <td>Laki - Laki</td>
+                                @else
+                                    <td>Perempuan</td>
+                                @endif
+                                <td>{{ $row->regencie->province->name}}</td>
+                                <td>{{ $row->regencie->name }}</td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <form action="{{ route('admin-cattleman.delete', $row->id) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                            <a href="{{ route('admin-cattleman.detail', $row->id) }}" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                            <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                        </table>
+                        {{ $cattleman->links() }}
+                    </div>
+                    <!-- /.card-body -->
                 </div>
-                </div>
+                <!-- /.card -->
             </div>
-            <!-- /.card-header -->
-            <div class="card-body table-responsive p-0">
-                <table class="table table-hover">
-                <thead>
-                    <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Province</th>
-                    <th>Regency</th>
-                    <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td>183</td>
-                    <td>John Doe</td>
-                    <td>ihul@gmail.com</td>
-                    <td>Jawa Timur</td>
-                    <td>Jember</td>
-                    <td>
-                        <button class="btn btn-info">Detail</button>
-                    </td>
-                    </tr>
-                </tbody>
-                </table>
-            </div>
-            <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-        </div>
         </div>
         
     </div><!-- /.container-fluid -->

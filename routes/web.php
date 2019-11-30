@@ -21,11 +21,29 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::namespace('admin')->group(function(){
     Route::prefix('admin')->group(function(){
+        Route::get('/dahboard', 'DashboardController@index')->name('admin.dashboard');
+
         //Cattleman
-        Route::get('/catteleman', 'CattlemanController@index')->name('cattleman.index');
+        Route::get('/cattleman/get_by_province', 'CattlemanController@get_by_province')
+            ->name('admin.regencie.get_by_province');
+        Route::get('/catteleman', 'CattlemanController@index')
+            ->name('admin-cattleman.index');
+        Route::get('/cattleman/create', 'CattlemanController@create')
+            ->name('admin-cattleman.create');
+        Route::post('/cattleman/store', 'CattlemanController@store')
+            ->name('admin-cattleman.store');
+        Route::get('/cattleman/detail/{id}', 'CattlemanController@detail')
+            ->name('admin-cattleman.detail');
+        Route::get('/cattleman/edit/{id}', 'CattlemanController@edit')
+            ->name('admin-cattleman.edit');
+        Route::put('/cattleman/update/{id}', 'CattlemanController@update')
+            ->name('admin-cattleman.update');
+        Route::delete('/cattleman/delete/{id}', 'CattlemanController@delete')
+            ->name('admin-cattleman.delete');
+
 
         //Livestock
-        Route::get('/livestock', 'LivestockController@index')->name('livestock.index');
+        Route::get('/livestock', 'LivestockController@index')->name('admin-livestock.index');
 
     });
 });

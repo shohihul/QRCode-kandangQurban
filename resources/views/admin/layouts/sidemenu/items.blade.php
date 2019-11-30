@@ -1,5 +1,5 @@
 <li class="nav-item">
-    <a href="#" @if ($pageSlug == 'dashboard') class="nav-link active" @endif class="nav-link">
+    <a href="{{ route('admin.dashboard') }}" @if ($pageSlug == 'dashboard') class="nav-link active" @endif class="nav-link">
         <i class="nav-icon fas fa-fire"></i>
         <p>
         Dashboard
@@ -16,13 +16,13 @@
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
-        <a href="{{ route('cattleman.index') }}" @if ($pageSlug == 'indexCattleman') class="nav-link active" @endif class="nav-link">
+        <a href="{{ route('admin-cattleman.index') }}" @if ($pageSlug == 'indexCattleman') class="nav-link active" @endif class="nav-link">
             <i class="fas fa-list nav-icon"></i>
             <p>Index</p>
         </a>
         </li>
         <li class="nav-item">
-        <a href="" @if ($pageSlug == 'addCattleman') class="nav-link active" @endif class="nav-link">
+        <a href="{{ route('admin-cattleman.create') }}" @if ($pageSlug == 'addCattleman') class="nav-link active" @endif class="nav-link">
             <i class="fas fa-plus nav-icon"></i>
             <p>Buat Akun</p>
         </a>
@@ -40,7 +40,7 @@
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
-        <a href="{{ route('livestock.index') }}" @if ($pageSlug == 'indexLivestock') class="nav-link active" @endif class="nav-link">
+        <a href="{{ route('admin-livestock.index') }}" @if ($pageSlug == 'indexLivestock') class="nav-link active" @endif class="nav-link">
             <i class="fas fa-list nav-icon"></i>
             <p>Index</p>
         </a>

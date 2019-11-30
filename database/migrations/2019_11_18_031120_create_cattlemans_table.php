@@ -18,8 +18,8 @@ class CreateCattlemansTable extends Migration
             $table->string('email');
             $table->string('name');
             $table->string('address');
-            $table->integer('regencies_id');
-            $table->enum('gender',['Laki-laki','Perempuan']);
+            $table->integer('regencie_id');
+            $table->enum('gender', ['male','female']);
             $table->string('password');
             $table->string('photo_profile');
             $table->string('qr_code');
