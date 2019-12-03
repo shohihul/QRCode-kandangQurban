@@ -21,7 +21,7 @@ class CreateLivestocksTable extends Migration
             $table->integer('price');
             $table->integer('stock');
             $table->integer('weight');
-            $table->integer('description');
+            $table->string('description');
             $table->string('image');
             $table->string('qr_code');
             $table->timestamps();

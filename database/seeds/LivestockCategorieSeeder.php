@@ -12,14 +12,17 @@ class LivestockCategorieSeeder extends Seeder
     public function run()
     {
         DB::table('livestocks_categories')->insert([
+            'id' => '1',
             'name' => 'Sapi',
         ]);
         
         DB::table('livestocks_categories')->insert([
+            'id'=>'2',
             'name' => 'Kambing',
         ]);
 
         DB::table('livestocks_categories')->insert([
+            'id'=>'3',
             'name' => 'Domba',
         ]);
     }
