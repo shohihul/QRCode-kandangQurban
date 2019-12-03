@@ -5,7 +5,6 @@ namespace App\Repositories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Cattleman;
-use App\Http\Requests\CattlemanStoreRequest;
 use Hash;
 use File;
 
@@ -51,7 +50,6 @@ class CattlemanRepository
     {
         DB::beginTransaction();
         try {
-            $name = str_replace(' ', '', $request->name);
             $cattleman->update([
                 'email' => $request->email,
                 'name' => $request->name,

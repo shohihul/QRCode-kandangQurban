@@ -34,7 +34,7 @@ class CattlemanController extends Controller
     {
         
         if (!$request->province_id) {
-            $html = '<option value="">'.trans('global.pleaseSelect').'</option>';
+            $html = '<option value="">Null</option>';
         } else {
             $html = '';
             $regencies = Regencie::where('province_id', $request->province_id)->get();

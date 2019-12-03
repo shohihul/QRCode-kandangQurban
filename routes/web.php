@@ -43,7 +43,21 @@ Route::namespace('admin')->group(function(){
 
 
         //Livestock
-        Route::get('/livestock', 'LivestockController@index')->name('admin-livestock.index');
-
+        Route::get('/livestock/get_by_category', 'LivestockController@get_by_category')
+            ->name('admin.type.get_by_category');
+        Route::get('/livestock', 'LivestockController@index')
+            ->name('admin-livestock.index');
+        Route::get('/livestock/create', 'LivestockController@create')
+            ->name('admin-livestock.create');
+        Route::post('/livestock/store', 'LivestockController@store')
+            ->name('admin-livestock.store');
+        Route::get('/livestock/detail/{id}', 'LivestockController@detail')
+            ->name('admin-livestock.detail');
+        Route::get('/livestock/edit/{id}', 'LivestockController@edit')
+            ->name('admin-livestock.edit');
+        Route::put('/livestock/update/{id}', 'LivestockController@update')
+            ->name('admin-livestock.update');
+        Route::delete('/livestock/delete/{id}', 'LivestockController@delete')
+            ->name('admin-livestock.delete');
     });
 });

@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class LivestockCategory extends Model
 {
-    //
+    protected $table = 'livestocks_categories';
+
     protected $fillabel=[
         'name',
     ];
