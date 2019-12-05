@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use DB;
 
 class AdminTableSeeder extends Seeder
 {
