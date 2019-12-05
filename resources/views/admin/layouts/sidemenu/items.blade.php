@@ -46,7 +46,7 @@
         </a>
         </li>
         <li class="nav-item">
-        <a href="" @if ($pageSlug == 'addLivestock') class="nav-link active" @endif class="nav-link">
+        <a href="{{ route('admin-livestock.create') }}" @if ($pageSlug == 'addLivestock') class="nav-link active" @endif class="nav-link">
             <i class="fas fa-plus nav-icon"></i>
             <p>Tambah Hewan Ternak</p>
         </a>

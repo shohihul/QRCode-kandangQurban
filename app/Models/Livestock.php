@@ -6,11 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Livestock extends Model
 {
-    //
     protected $fillable =[
         'cattleman_id', 'livestock_type_id','name','price','stock','weight','description','image','qr_code'
-
-
     ];
 
     public function cattleman(){
