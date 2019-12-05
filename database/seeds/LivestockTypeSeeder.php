@@ -101,6 +101,12 @@ class LivestockTypeSeeder extends Seeder
             'livestock_category_id'=>'3',
             'name' => 'Domba Gembel',
         ]);
+
+        DB::table('livestocks_types')->insert([
+            'id'=>'16',
+            'livestock_category_id'=>'3',
+            'name' => 'Domba woolooo',
+        ]);
        
     }
 
