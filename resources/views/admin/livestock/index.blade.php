@@ -30,7 +30,7 @@
             <div class="card-header">
                 <h3 class="card-title">List Hewan Ternak</h3></h3>
                 <div class="card-tools">
-                    <a href="{{ route('admin-cattleman.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Tambah Hewan Peternak</a>
+                    <a href="{{ route('admin-livestock.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Tambah Hewan Peternak</a>
                 </div>
                 
             </div>

@@ -17,7 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')
+    ->name('home');
+Route::get('/cattleman/profile/{id}', 'HomeController@profile')
+    ->name('cattleman.profile');
+Route::get('/livestock/detail/{id}', 'HomeController@livestock')
+    ->name('livestock.detail');
 
 Route::namespace('admin')->group(function(){
     Route::prefix('admin')->group(function(){

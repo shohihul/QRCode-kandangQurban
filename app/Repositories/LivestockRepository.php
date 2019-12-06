@@ -31,7 +31,7 @@ class LivestockRepository
                 'cattleman_id' => $request->cattleman_id,
                 'name' => $request->name,
                 'livestock_type_id' => $request->livestock_type_id,
-                'price' => $request->price,
+                'price' => str_replace(".", '', $request->price),
                 'stock' => $request->stock,
                 'weight' => $request->weight,
                 'description' => $request->description,

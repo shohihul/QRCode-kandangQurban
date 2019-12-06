@@ -3,26 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cattleman;
+use App\Models\Livestock;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+
+    public function profile($id)
     {
-        $this->middleware('auth');
+        $cattleman = Cattleman::where('id', $id)->first();
+        $livestock = Livestock::where('cattleman_id', $id)->get();
+        return view('profile',
+            compact(
+                'cattleman',
+                'livestock'
+            )
+        );
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+    public function livestock($id)
     {
-        return view('home');
+        $livestock = Livestock::where('cattleman_id', $id)->first();
+        return view('livestock',
+            compact(
+                'livestock'
+            )
+        );
     }
 }
