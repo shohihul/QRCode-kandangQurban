@@ -60,6 +60,8 @@ class LivestockController extends Controller
     {
         $livestock = $this->livestockRepository->store($request);
         $this->livestockRepository->fileUpload($request, $livestock);
+        $this->livestockRepository->qrcode($request);
+        $this->livestockRepository->uploadCloudinary($request);
         
         \Session::flash('status', 'Berhasil Menambahkan Hewan Ternak Peternak');
         return redirect(route('admin-livestock.index'));

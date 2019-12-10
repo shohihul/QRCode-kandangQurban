@@ -66,6 +66,11 @@
                         <strong><i class="fas fa-info-circle mr-1"></i> | Deskripsi</strong>
                         <p class="text-muted">{{ $livestock->description }}</p>
                         <hr>
+
+                        <strong><i class="fas fa-info-circle mr-1"></i> | QR Code</strong>
+                        <br>
+                                <img src="{{ asset('assets/img/qrcode/livestock/' . $livestock->qr_code) }}" alt="QR Code">
+                            <hr>
                     </div>
                 <!-- /.card-body -->
                 </div>

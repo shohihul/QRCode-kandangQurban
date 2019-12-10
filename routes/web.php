@@ -24,7 +24,7 @@ Route::get('/cattleman/profile/{id}', 'HomeController@profile')
 Route::get('/livestock/detail/{id}', 'HomeController@livestock')
     ->name('livestock.detail');
 
-Route::namespace('admin')->group(function(){
+Route::namespace('Admin')->group(function(){
     Route::prefix('admin')->group(function(){
         Route::get('/dahboard', 'DashboardController@index')->name('admin.dashboard');
 
@@ -64,5 +64,7 @@ Route::namespace('admin')->group(function(){
             ->name('admin-livestock.update');
         Route::delete('/livestock/delete/{id}', 'LivestockController@delete')
             ->name('admin-livestock.delete');
+
+
     });
 });

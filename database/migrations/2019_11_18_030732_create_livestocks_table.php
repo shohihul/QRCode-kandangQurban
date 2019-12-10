@@ -15,8 +15,8 @@ class CreateLivestocksTable extends Migration
     {
         Schema::create('livestocks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('cattlemans_id');
-            $table->integer('livestocks_types_id');
+            $table->integer('cattleman_id');
+            $table->integer('livestock_type_id');
             $table->string('name');
             $table->integer('price');
             $table->integer('stock');

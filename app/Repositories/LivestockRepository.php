@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Livestock;
 use File;
+use QrCode;
+use Cloudder;
 
 class LivestockRepository
 {
@@ -35,7 +37,7 @@ class LivestockRepository
                 'stock' => $request->stock,
                 'weight' => $request->weight,
                 'description' => $request->description,
-                'qr_code' => 'QrCode_livestock_' .  $name,
+                'qr_code' => 'qrcode_livestock_' .  $name . '.png',
                 'image' => 'image_' . $name
                 ]
             );
@@ -57,7 +59,7 @@ class LivestockRepository
                 'stock' => $request->stock,
                 'weight' => $request->weight,
                 'description' => $request->description
-                ],
+                ]
             );
             DB::commit();
             return $livestock;
@@ -96,5 +98,22 @@ class LivestockRepository
     public function deleteImage($livestock)
     {
         File::delete(public_path('assets/img/livestock/' . $livestock->image));
+    }
+
+    public function qrcode(Request $request)
+    {
+        $name = str_replace(' ', '', $request->name);
+        $content = 'Hello World!!';
+        QrCode::format('png')
+            ->size(500)
+            ->generate($content, public_path('assets/img/qrcode/livestock/' . 'qrcode_livestock_' .  $name . '.png'));
+    }
+
+    public function uploadCloudinary(Request $request)
+    {
+        $name = str_replace(' ', '', $request->name);
+        $fileName = 'qrcode_livestock_' .  $name . '.png';
+        $file = public_path('assets/img/qrcode/livestock/' . $fileName);
+        Cloudder::upload($file, $fileName, ['folder' => 'KandangQurban/livestock/']);
     }
 }

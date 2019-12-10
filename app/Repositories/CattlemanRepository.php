@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Cattleman;
 use Hash;
 use File;
+use QrCode;
+use Cloudder;
 
 class CattlemanRepository
 {
@@ -35,10 +37,9 @@ class CattlemanRepository
                 'regencie_id' => $request->regencie_id,
                 'address' => $request->address,
                 'password' => Hash::make($request->password),
-                'qr_code' => 'QrCode_cattleman_' .  $name,
+                'qr_code' => 'qrcode_cattleman_' .  $name . '.png',
                 'photo_profile' => 'photoProfile_' . $name
-                ],
-            );
+                ]);
             DB::commit();
             return $cattleman;
         } catch (\Exception $e) {
@@ -56,7 +57,7 @@ class CattlemanRepository
                 'gender' => $request->gender,
                 'regencie_id' => $request->regencie_id,
                 'address' => $request->address,
-                ],
+                ]
             );
             DB::commit();
             return $cattleman;
@@ -95,5 +96,22 @@ class CattlemanRepository
     public function deletePhoto($cattleman)
     {
         File::delete(public_path('assets/img/cattleman/' . $cattleman->photo_profile));
+    }
+
+    public function qrcode(Request $request)
+    {
+        $name = str_replace(' ', '', $request->name);
+        $content = 'Hello World!!';
+        QrCode::format('png')
+            ->size(500)
+            ->generate($content, public_path('assets/img/qrcode/cattleman/' . 'qrcode_cattleman_' .  $name . '.png'));
+    }
+
+    public function uploadCloudinary(Request $request)
+    {
+        $name = str_replace(' ', '', $request->name);
+        $fileName = 'qrcode_cattleman_' .  $name . '.png';
+        $file = public_path('assets/img/qrcode/cattleman/' . $fileName);
+        Cloudder::upload($file, $fileName, ['folder' => 'KandangQurban/cattleman/']);
     }
 }

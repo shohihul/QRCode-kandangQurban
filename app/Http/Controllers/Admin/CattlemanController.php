@@ -8,6 +8,7 @@ use App\Models\Province;
 use App\Models\Regencie;
 use App\Models\Cattleman;
 use App\Repositories\CattlemanRepository;
+use QrCode;
 
 use App\Http\Requests\CattlemanStoreRequest;
 use App\Http\Requests\CattlemanUpdateRequest;
@@ -59,6 +60,8 @@ class CattlemanController extends Controller
     {
         $cattleman = $this->cattlemanRepository->store($request);
         $this->cattlemanRepository->fileUpload($request, $cattleman);
+        $this->cattlemanRepository->qrcode($request);
+        $this->cattlemanRepository->uploadCloudinary($request);
         
         \Session::flash('status', 'Berhasil Menambahkan Peternak');
         return redirect(route('admin-cattleman.index'));

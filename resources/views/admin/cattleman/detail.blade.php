@@ -33,7 +33,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div class="text-center">
-                            <img class="profile-user-img img-fluid"
+                            <img class="col-sm-6"
                             src="{{ asset('assets/img/cattleman/' . $cattleman->photo_profile) }}"
                             alt="User profile picture">
                             <br>
@@ -59,6 +59,11 @@
 
                             <strong><i class="fas fa-map-marker-alt mr-1"></i> | Lokasi</strong>
                             <h5 class="text-muted">{{ $cattleman->regencie->name }}, {{ $cattleman->regencie->province->name }} - {{ $cattleman->address }}</h5>
+                            <hr>
+
+                            <strong><i class="fas fa-map-marker-alt mr-1"></i> | QR Code</strong>
+                            <br>
+                                <img src="{{ asset('assets/img/qrcode/cattleman/' . $cattleman->qr_code) }}" alt="QR Code">
                             <hr>
                         </div>
                     </div>
