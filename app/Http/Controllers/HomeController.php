@@ -23,11 +23,16 @@ class HomeController extends Controller
 
     public function livestock($id)
     {
-        $livestock = Livestock::where('cattleman_id', $id)->first();
+        $livestock = Livestock::where('id', $id)->first();
         return view('livestock',
             compact(
                 'livestock'
             )
         );
+    }
+
+    public function scanner()
+    {
+        return view('scanner');
     }
 }

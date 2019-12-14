@@ -60,7 +60,7 @@ class CattlemanController extends Controller
     {
         $cattleman = $this->cattlemanRepository->store($request);
         $this->cattlemanRepository->fileUpload($request, $cattleman);
-        $this->cattlemanRepository->qrcode($request);
+        $this->cattlemanRepository->qrcode($request, $cattleman);
         $this->cattlemanRepository->uploadCloudinary($request);
         
         \Session::flash('status', 'Berhasil Menambahkan Peternak');

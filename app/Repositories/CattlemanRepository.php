@@ -98,10 +98,10 @@ class CattlemanRepository
         File::delete(public_path('assets/img/cattleman/' . $cattleman->photo_profile));
     }
 
-    public function qrcode(Request $request)
+    public function qrcode(Request $request, $cattleman)
     {
         $name = str_replace(' ', '', $request->name);
-        $content = 'Hello World!!';
+        $content = 'http://localhost:8000/cattleman/profile/' . $cattleman->id;
         QrCode::format('png')
             ->size(500)
             ->generate($content, public_path('assets/img/qrcode/cattleman/' . 'qrcode_cattleman_' .  $name . '.png'));

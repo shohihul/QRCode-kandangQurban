@@ -100,10 +100,10 @@ class LivestockRepository
         File::delete(public_path('assets/img/livestock/' . $livestock->image));
     }
 
-    public function qrcode(Request $request)
+    public function qrcode(Request $request, $livestock)
     {
         $name = str_replace(' ', '', $request->name);
-        $content = 'Hello World!!';
+        $content = 'http://localhost:8000/livestock/detail/' . $livestock->id;
         QrCode::format('png')
             ->size(500)
             ->generate($content, public_path('assets/img/qrcode/livestock/' . 'qrcode_livestock_' .  $name . '.png'));

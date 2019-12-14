@@ -12,17 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+    })
+    ->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')
-    ->name('home');
+Route::get('/dashboard', 'HomeController@index')
+    ->name('dashboard');
 Route::get('/cattleman/profile/{id}', 'HomeController@profile')
     ->name('cattleman.profile');
 Route::get('/livestock/detail/{id}', 'HomeController@livestock')
     ->name('livestock.detail');
+Route::get('/scanner', 'HomeController@scanner')
+    ->name('scanner');
 
 Route::namespace('Admin')->group(function(){
     Route::prefix('admin')->group(function(){

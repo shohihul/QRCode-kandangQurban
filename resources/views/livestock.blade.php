@@ -5,7 +5,7 @@
     <div id="myCarousel" class="carousel" data-ride="carousel">
         <div class="carousel-inner" style="height:500px;">
             <div class="item active">
-                <img src="{{ asset('assets/img/livestock/' . $livestock->image) }}" alt="Los Angeles" style="width:100%; " >
+                <img src="{{ asset('assets/img/livestock/' . $livestock->image) }}" alt="" style="width:100%; " >
             </div>
         </div>
     </div>
