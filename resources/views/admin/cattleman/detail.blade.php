@@ -35,7 +35,7 @@
                         <div class="text-center">
                             <img class="col-sm-6"
                             src="{{ asset('assets/img/cattleman/' . $cattleman->photo_profile) }}"
-                            alt="User profile picture">
+                            alt="User profile picture" style="width: 100%; max-width: 200px;">
                             <br>
                             <a href="{{ route('admin-cattleman.edit', $cattleman->id) }}" class="btn btn-secondary btn-xs"><i class="fas fa-edit"></i> Edit</a>
                             <hr>
@@ -59,6 +59,10 @@
 
                             <strong><i class="fas fa-map-marker-alt mr-1"></i> | Lokasi</strong>
                             <h5 class="text-muted">{{ $cattleman->regencie->name }}, {{ $cattleman->regencie->province->name }} - {{ $cattleman->address }}</h5>
+                            <hr>
+
+                            <strong><i class="fas fa-eye mr-1"></i> | Views</strong>
+                            <h5 class="text-muted">{{ $views }} views</h5>
                             <hr>
 
                             <strong><i class="fas fa-map-marker-alt mr-1"></i> | QR Code</strong>

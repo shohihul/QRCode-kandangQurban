@@ -7,6 +7,7 @@ use App\Models\LivestockCategory;
 use App\Models\LivestockType;
 use App\Models\Cattleman;
 use App\Models\Livestock;
+use App\Models\LogViewLivestock;
 use App\Repositories\LivestockRepository;
 
 use App\Http\Requests\LivestockStoreRequest;
@@ -70,10 +71,12 @@ class LivestockController extends Controller
     public function detail($id)
     {
         $livestock = $this->livestockRepository->get($id);
+        $views = LogViewLivestock::where('livestock_id', $id)->count();
 
         return view('admin.livestock.detail',
             compact(
-                'livestock'
+                'livestock',
+                'views'
             )
         );
     }

@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class LogViewLivestock extends Model
 {
-    //
-    protected$fillabel=[
+    protected $table = 'log_view_livestocks';
+
+    protected $fillabel=[
         'ip_address', 'livestock_id'
     ];
 

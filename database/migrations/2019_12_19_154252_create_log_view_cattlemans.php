@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLogViewsCattlemansTable extends Migration
+class CreateLogViewCattlemans extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateLogViewsCattlemansTable extends Migration
      */
     public function up()
     {
-        Schema::create('log_views_cattlemans', function (Blueprint $table) {
+        Schema::create('log_view_cattlemans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('cattlemans_id');
+            $table->integer('cattleman_id');
             $table->string('ip_address');
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ class CreateLogViewsCattlemansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('log_views_cattlemans');
+        Schema::dropIfExists('log_view_cattlemans');
     }
 }

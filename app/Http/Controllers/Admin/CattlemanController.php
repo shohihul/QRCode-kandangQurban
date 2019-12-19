@@ -7,11 +7,13 @@ use App\Http\Controllers\Controller;
 use App\Models\Province;
 use App\Models\Regencie;
 use App\Models\Cattleman;
+use App\Models\LogViewCattleman;
 use App\Repositories\CattlemanRepository;
 use QrCode;
 
 use App\Http\Requests\CattlemanStoreRequest;
 use App\Http\Requests\CattlemanUpdateRequest;
+
 
 class CattlemanController extends Controller
 {
@@ -70,10 +72,12 @@ class CattlemanController extends Controller
     public function detail($id)
     {
         $cattleman = $this->cattlemanRepository->get($id);
+        $views = LogViewCattleman::where('cattleman_id', $id)->count();
 
         return view('admin.cattleman.detail',
             compact(
-                'cattleman'
+                'cattleman',
+                'views'
             )
         );
     }
