@@ -77,7 +77,7 @@ return [
         ],
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\Cattleman::class,
         ],
 
         // 'users' => [

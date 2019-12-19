@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCattlemansHistoriesTable extends Migration
+class CreateLivestockHistories extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateCattlemansHistoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cattlemans_histories', function (Blueprint $table) {
+        Schema::create('livestock_histories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->string('image')->nullable();
-            $table->integer('cattlemans_id');
+            $table->integer('livestock_id');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateCattlemansHistoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cattlemans_histories');
+        Schema::dropIfExists('livestock_histories');
     }
 }

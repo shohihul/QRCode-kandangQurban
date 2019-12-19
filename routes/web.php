@@ -27,6 +27,14 @@ Route::get('/livestock/detail/{id}', 'HomeController@livestock')
 Route::get('/scanner', 'HomeController@scanner')
     ->name('scanner');
 
+//Livestock History
+Route::post('/livestock/history/store', 'LivestockHistoryController@store')
+    ->name('livestock-history.store');
+
+//Cattleman History
+Route::post('/cattleman/history/store', 'CattlemanHistoryController@store')
+    ->name('cattleman-history.store');
+
 Route::namespace('Admin')->group(function(){
     Route::prefix('admin')->group(function(){
         Route::get('/dahboard', 'DashboardController@index')->name('admin.dashboard');

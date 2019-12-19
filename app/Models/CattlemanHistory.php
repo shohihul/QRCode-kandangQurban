@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CattlemanHistory extends Model
 {
     //
-    protected $fillabel=[
+    protected $fillable=[
         'title','description','image', 'cattleman_id'
     ];
 
